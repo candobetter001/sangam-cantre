@@ -42,7 +42,7 @@ const About = () => {
     {
       name: "SuryaPrakash Kar",
       position: "Research Fellow",
-      image: "/SuryaPrakash.png",
+      image: "/Surya_1.png",
       description:
         "Suryaprakash Kar is working as a Manager – Academic Operations at Rishihood University, driving academic policy formation, curriculum development, and student affairs within the Registrar's Office. He holds a B.Tech in Agricultural Engineering, during which he founded a startup supporting Indian cultural artists—an initiative that earned him the Young Entrepreneurs Award (2020) in Delhi. He further advanced his education with an MBA in Urban Management & Governance from XIM University, Bhubaneswar (XIMB), where he led the Media and Public Relations Cell, organizing high-profile events like LinkedIn workshops, a media conclave, and TED talks. During his MBA, his capstone project analyzed FSI changes in Bhubaneswar’s residential real estate, crafting investment strategies for middle-income households. Suryaprakash’s professional journey spans both the public and private sectors. He interned at Colliers International and IBI Group India, contributed to the Aarogya Setu technical team during the COVID‑19 pandemic, and served as Monitoring Officer for the Mo School Abhiyan under the Department of School and Mass Education, Government of Odisha. At Rishihood University, he has been instrumental in drafting over a dozen academic guidelines, 50+ annexures, and automating multiple institutional processes—efforts that earned him the Rishihood Rachna Award (Chikirsha) in June.",
     },
