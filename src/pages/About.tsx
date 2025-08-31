@@ -19,7 +19,7 @@ const About = () => {
       name: "Shri Subrat Tripathy",
       position: "Advisor",
       expertise: "Public Policy and Research Division",
-      image: "/Subrat_1.jpg",
+      image: "/Subrat_1.png",
       description:
         "Subrat Tripathy is a purpose-driven entrepreneur, policy advocate, and socio-cultural leader with over 20 years of diverse experience spanning corporate leadership, technology entrepreneurship, youth mobilization, and culture-led public policy. As Managing Director of SRS Perfection India (OPC) Pvt. Ltd., he pioneered AI-enabled logistics and vehicle tracking systems across Eastern India. Formerly with Tata Motors and Castrol India, he led service marketing and retail operations across major mining and transport belts. Subrat has done Advanced Management in Public Policy from world’s one of the leading college Indian School of Business. He has been instrumental in shaping grassroots leadership and mentoring startups in health tech and water innovation. He heads the public policy division, focusing on traditional knowledge systems, temple economy, and rural development. Deeply rooted in Bharatiya cultural values, he blends technology, public policy, and youth leadership for nation-building, disaster response, and civic engagement.",
     },
@@ -72,7 +72,7 @@ const About = () => {
       name: "Abhishek Bharti",
       position: "Research Scholar and guest faculty,",
       expertise: "(University of Delhi)",
-      image: "/Abhishek_1.jpeg",
+      image: "/Abhishek_1.png",
       description:
         "Abhishek Bharti is an environmental science professional with a focus on pollution dynamics and ecosystem health, particularly in aquatic environments. His doctoral research at the University of Delhi examines the environmental behavior and risks of plastic contaminants, developed in collaboration with Khalifa University for advanced methodological support. He teaches undergraduate Environmental Studies as a Guest Faculty member at Bharati College, University of Delhi. Abhishek’s professional journey includes research and field roles at institutions like the Centre for Science and Environment (CSE), Wildlife Institute of India (WII), and Centre for Youth (C4Y), where he contributed to ecological assessments, community-based sustainability programs, and urban sanitation planning. His work bridges scientific research and practical implementation, aiming to foster environmentally informed decision-making through education, outreach, and interdisciplinary collaboration.",
     },
