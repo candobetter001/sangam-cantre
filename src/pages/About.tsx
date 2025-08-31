@@ -50,7 +50,7 @@ const About = () => {
       name: "Saiyami Bhardwaj",
       position: "Research Scholar and guest faculty ,",
       expertise: "(University of Delhi)",
-      image: "/Saiyami.png",
+      image: "/Saiyami_1.png",
       description:
         "Saiyami Bhardwaj is an environmental researcher and educator whose work lies at the intersection of air pollution and public health, particularly examining the impact of airborne contaminants on human health outcomes in urban environments. She is currently pursuing a Ph.D. at the Department of Environmental Studies, University of Delhi. She collaborates with leading public health institutions, including AIIMS, to advance interdisciplinary research on environmental exposure and health impacts. In addition, she serves as a Guest Faculty member at Ramjas College, University of Delhi, where she teaches and mentors undergraduate students in Environmental Studies. With a strong commitment to evidence-based policy engagement, she has presented her work at multiple national and international conferences and actively contributes to dialogues linking environmental science with sustainable urban health strategies.",
     },
