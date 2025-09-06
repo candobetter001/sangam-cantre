@@ -34,7 +34,7 @@ const About = () => {
     {
       name: "Dr. Ashish Pandey",
       position: "Advisor",
-      expertise: "Professior, SJMSoM, IIT Bombay",
+      expertise: "Professor, SJMSoM, IIT Bombay",
       image: "/Ashish_1.png",
       description:
         "Dr. Ashish Pandey is the Professor with Shailesh J. Mehta School of Management, Indian Institute of Technology Bombay in Mumbai and visiting Professor at IIM Ahmedabad where he teaches courses related to Organization Development, Human Resource Management, Self-Management and Leadership. Prof Ashish is the Management Committee member of NBA (National Board of Accreditation) and council member of Indian Council of Philosophical Research. Ashish has designed and conducted more than hundred consulting and long-term training projects for the organization and leadership development across industries and for institutions of higher education in last 15 years. He has published more than fifty research articles in the field of Yoga and positive psychology, spirituality at workplace, mindfulness, business and society interface, shared leadership and responsible leadership in globally reputed journals including Journal of Management, Journal of Business Ethics, Personnel Review etc. He has co-edited the volume on Indigenous Indian Management published by Palgrave MacMillan. His research is recognized with awards and fellowships at forums held at Indian Academy of Management, Academy of Management, USA, Fowler Centre of Case Western University, Indian Institute of Sciences etc. Ashish is a co-founder of www.dharmawiki.org and www.panchkoshawellbeing.in.",
