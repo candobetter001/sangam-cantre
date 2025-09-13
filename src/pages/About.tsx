@@ -18,7 +18,7 @@ const About = () => {
     {
       name: "Shri Subrat Tripathy",
       position: "Advisor",
-      expertise: "Public Policy and Research Division",
+      expertise: "Entrepreneur, Startup Advisor, MD (SRS Perfection India Pvt. Ltd.",
       image: "/Subrat_1.png",
       description:
         "Subrat Tripathy is a purpose-driven entrepreneur, policy advocate, and socio-cultural leader with over 20 years of diverse experience spanning corporate leadership, technology entrepreneurship, youth mobilization, and culture-led public policy. As Managing Director of SRS Perfection India (OPC) Pvt. Ltd., he pioneered AI-enabled logistics and vehicle tracking systems across Eastern India. Formerly with Tata Motors and Castrol India, he led service marketing and retail operations across major mining and transport belts. Subrat has done Advanced Management in Public Policy from world’s one of the leading college Indian School of Business. He has been instrumental in shaping grassroots leadership and mentoring startups in health tech and water innovation. He heads the public policy division, focusing on traditional knowledge systems, temple economy, and rural development. Deeply rooted in Bharatiya cultural values, he blends technology, public policy, and youth leadership for nation-building, disaster response, and civic engagement.",
@@ -42,13 +42,13 @@ const About = () => {
     {
       name: "Divya Rathore",
       position: "Consultant",
-      expertise: "",
+      expertise: "Senior Policy Specialist, Govt. of India",
       image: "/divya.JPG",
       description:
         "Divya Singh Rathore is working as Senior Policy Specialist with Government of India. A public policy professional, published author, classical dancer and a columnist, she comes with a cross-cutting experience of Government, media, consulting and think tanks. She has worked with the Office of Minister of Culture, Tourism and North-East, Minister of Education on policy advisory, research, communications and stakeholder management. She did her Graduation in history from Lady Sri Ram College and Post Graduation from The Hindu College, University of Delhi. She did her schooling from Maharani Gayatri Devi School, Jaipur. Her passion lies in exploring treasures of history and cultural heritage. She believes that culture is a great enabler of unlocking human and social potential. She is also a published columnist with articles in The Hindu, India Today, Firstpost, News18, Daily Pioneer etc. She is also a TEDx speaker and loves interacting with young students. She has also been a state-level tennis player and a trained Bharatnatyam dancer. She nurses the dream of establishing a school for under privileged girls of Rajasthan.",
     },
     {
-      name: "SuryaPrakash Kar",
+      name: "Suryaprakash Kar",
       position: "Research Fellow",
       image: "/Surya_1.png",
       description:
@@ -63,15 +63,17 @@ const About = () => {
         "Saiyami Bhardwaj is an environmental researcher and educator whose work lies at the intersection of air pollution and public health, particularly examining the impact of airborne contaminants on human health outcomes in urban environments. She is currently pursuing a Ph.D. at the Department of Environmental Studies, University of Delhi. She collaborates with leading public health institutions, including AIIMS, to advance interdisciplinary research on environmental exposure and health impacts. In addition, she serves as a Guest Faculty member at Ramjas College, University of Delhi, where she teaches and mentors undergraduate students in Environmental Studies. With a strong commitment to evidence-based policy engagement, she has presented her work at multiple national and international conferences and actively contributes to dialogues linking environmental science with sustainable urban health strategies.",
     },
     {
-      name: "Prof Rana Prithviraj Singh",
+      name: "Prof. Rana Prithviraj Singh",
       position: "Visiting faculty - XIM University",
+      expertise: "Capacity Development Researcher",
       image: "/Rana_1.png",
       description:
         "Mr. Rana Prithviraj Singh is a distinguished professional in project management and capacity development, with extensive experience across diverse sectors. He has excelled in consulting and business development roles, serving both government organizations and the private sector. With a demonstrated history of conducting management and social science research, as well as policy studies for educational institutions and nonprofit organizations, Mr. Singh brings a unique blend of academic rigor and practical expertise. He holds an engineering degree and a postgraduate degree in business administration, with a strong focus on practice-research-based learning in macro- organizations. Additionally, he has submitted his Ph.D. in Municipal Governance & Policies. As a certified Chartered Manager specializing in applied strategy and leadership, he combines theoretical knowledge with hands-on strategic insight. His current research interests lie in analyzing governments’ organizational and institutional structures, exploring their evolution and development to enhance participatory planning and governance. Beyond his professional and academic pursuits, Mr. Singh is deeply engaged with a dynamic and multidisciplinary scientific community, fostering collaborations that enrich his research and consultancy work. Guided by the profound wisdom of the Bhagavad Gita, he embodies the philosophy of  योग : कर्मसु कौशलर््  – excellence in action through skillful execution.",
     },
     {
       name: "Ankita Gangdeb ",
-      position: "Advocate, High Court of Odisha and Supreme court of India",
+      position: "Advocate",
+      expertise: "Odisha High Court & Supreme Court",
       image: "/Ankita_1.png",
       description:
         "Ankita Gangadeb is a dynamic and passionate advocate for environmental sustainability and animal welfare, inspiring a new generation of leaders with her tireless efforts. As a youth icon, she has participated in the prestigious Y20 India initiative, engaging in meaningful discussions on global citizenship and sustainable development. Her thought-provoking talks on environmental conservation at international conferences and seminars have garnered attention, showcasing her expertise and dedication. Ankita's work on the EcoSide project demonstrates her commitment to reducing humanity's ecological footprint. As a UNFCCC Ocean Activist, she champions the protection of marine ecosystems, advocating for sustainable practices that preserve the world's oceans for future generations. Through her multifaceted advocacy and leadership roles in the Bharatiya Janata Yuva Morcha (BJYM), Ankita Gangadeb continues to make a lasting impact, empowering others to join her in building a more sustainable and environmentally conscious world.",
