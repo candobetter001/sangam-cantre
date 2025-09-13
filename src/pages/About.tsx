@@ -43,7 +43,7 @@ const About = () => {
       name: "Divya Rathore",
       position: "Consultant",
       expertise: "Senior Policy Specialist, Govt. of India",
-      image: "/divya.JPG",
+      image: "/Divya_1.png",
       description:
         "Divya Singh Rathore is working as Senior Policy Specialist with Government of India. A public policy professional, published author, classical dancer and a columnist, she comes with a cross-cutting experience of Government, media, consulting and think tanks. She has worked with the Office of Minister of Culture, Tourism and North-East, Minister of Education on policy advisory, research, communications and stakeholder management. She did her Graduation in history from Lady Sri Ram College and Post Graduation from The Hindu College, University of Delhi. She did her schooling from Maharani Gayatri Devi School, Jaipur. Her passion lies in exploring treasures of history and cultural heritage. She believes that culture is a great enabler of unlocking human and social potential. She is also a published columnist with articles in The Hindu, India Today, Firstpost, News18, Daily Pioneer etc. She is also a TEDx speaker and loves interacting with young students. She has also been a state-level tennis player and a trained Bharatnatyam dancer. She nurses the dream of establishing a school for under privileged girls of Rajasthan.",
     },
