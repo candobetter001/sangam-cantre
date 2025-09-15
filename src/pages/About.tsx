@@ -50,6 +50,7 @@ const About = () => {
     {
       name: "Suryaprakash Kar",
       position: "Research Fellow",
+      expertise: "Manager (Academic Operations), Rishihood University",
       image: "/Surya_1.png",
       description:
         "Suryaprakash Kar is working as a Manager – Academic Operations at Rishihood University, driving academic policy formation, curriculum development, and student affairs within the Registrar's Office. He holds a B.Tech in Agricultural Engineering, during which he founded a startup supporting Indian cultural artists—an initiative that earned him the Young Entrepreneurs Award (2020) in Delhi. He further advanced his education with an MBA in Urban Management & Governance from XIM University, Bhubaneswar (XIMB), where he led the Media and Public Relations Cell, organizing high-profile events like LinkedIn workshops, a media conclave, and TED talks. During his MBA, his capstone project analyzed FSI changes in Bhubaneswar’s residential real estate, crafting investment strategies for middle-income households. Suryaprakash’s professional journey spans both the public and private sectors. He interned at Colliers International and IBI Group India, contributed to the Aarogya Setu technical team during the COVID‑19 pandemic, and served as Monitoring Officer for the Mo School Abhiyan under the Department of School and Mass Education, Government of Odisha. At Rishihood University, he has been instrumental in drafting over a dozen academic guidelines, 50+ annexures, and automating multiple institutional processes—efforts that earned him the Rishihood Rachna Award (Chikirsha) in June.",
@@ -57,7 +58,7 @@ const About = () => {
     {
       name: "Saiyami Bhardwaj",
       position: "Research Scholar and guest faculty ,",
-      expertise: "(University of Delhi)",
+      expertise: "University of Delhi",
       image: "/Saiyami_1.png",
       description:
         "Saiyami Bhardwaj is an environmental researcher and educator whose work lies at the intersection of air pollution and public health, particularly examining the impact of airborne contaminants on human health outcomes in urban environments. She is currently pursuing a Ph.D. at the Department of Environmental Studies, University of Delhi. She collaborates with leading public health institutions, including AIIMS, to advance interdisciplinary research on environmental exposure and health impacts. In addition, she serves as a Guest Faculty member at Ramjas College, University of Delhi, where she teaches and mentors undergraduate students in Environmental Studies. With a strong commitment to evidence-based policy engagement, she has presented her work at multiple national and international conferences and actively contributes to dialogues linking environmental science with sustainable urban health strategies.",
@@ -81,7 +82,7 @@ const About = () => {
     {
       name: "Abhishek Bharti",
       position: "Research Scholar and guest faculty,",
-      expertise: "(University of Delhi)",
+      expertise: "University of Delhi",
       image: "/Abhishek_1.png",
       description:
         "Abhishek Bharti is an environmental science professional with a focus on pollution dynamics and ecosystem health, particularly in aquatic environments. His doctoral research at the University of Delhi examines the environmental behavior and risks of plastic contaminants, developed in collaboration with Khalifa University for advanced methodological support. He teaches undergraduate Environmental Studies as a Guest Faculty member at Bharati College, University of Delhi. Abhishek’s professional journey includes research and field roles at institutions like the Centre for Science and Environment (CSE), Wildlife Institute of India (WII), and Centre for Youth (C4Y), where he contributed to ecological assessments, community-based sustainability programs, and urban sanitation planning. His work bridges scientific research and practical implementation, aiming to foster environmentally informed decision-making through education, outreach, and interdisciplinary collaboration.",
