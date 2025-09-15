@@ -40,6 +40,14 @@ const About = () => {
         "Dr. Ashish Pandey is the Professor with Shailesh J. Mehta School of Management, Indian Institute of Technology Bombay in Mumbai and visiting Professor at IIM Ahmedabad where he teaches courses related to Organization Development, Human Resource Management, Self-Management and Leadership. Prof Ashish is the Management Committee member of NBA (National Board of Accreditation) and council member of Indian Council of Philosophical Research. Ashish has designed and conducted more than hundred consulting and long-term training projects for the organization and leadership development across industries and for institutions of higher education in last 15 years. He has published more than fifty research articles in the field of Yoga and positive psychology, spirituality at workplace, mindfulness, business and society interface, shared leadership and responsible leadership in globally reputed journals including Journal of Management, Journal of Business Ethics, Personnel Review etc. He has co-edited the volume on Indigenous Indian Management published by Palgrave MacMillan. His research is recognized with awards and fellowships at forums held at Indian Academy of Management, Academy of Management, USA, Fowler Centre of Case Western University, Indian Institute of Sciences etc. Ashish is a co-founder of www.dharmawiki.org and www.panchkoshawellbeing.in.",
     },
     {
+      name: "Mr. Puneet Dwivedi",
+      position: "Advisor",
+      expertise: "UK Government Civil Servant",
+      image: "/Puneet_1.png",
+      description:
+        "Puneet Dwivedi, an MBE awardee (equivalent to India's Padma Shri), UK Government Civil Servant specialising in AI, Digital Data and technology. He is deeply committed to strengthening the UK-India 'living bridge' through policy, community, and innovation. Before joining UK Government, Puneet has Successfully leveraged 20 years career in financial services (working with major Banks, Financial institutions and IT Consultancy services) in India and the United Kingdom. As a Digital and Data Specialist, he has been bridging technical expertise and client needs. He has been involved in overseeing organisation’s overall data architecture, defining data architecture strategy, Data Governance and designing and implementing architectures including cloud-based platforms such as AWS, Azure and Google Cloud. Apart from his day job Puneet devote his time as trustee and advisor for numerous charities including INSA, Go Dharmic, Free Speech Union and Non-Executive board member of Scottish Hindu Foundation. He has also started a podcast called ‘GDP with PD- The Global Desi Podcast’ – where he interviewed high profile people including Ministers, MPs, Business leaders and Spiritual Gurus discussing their inspiring journey and unique insights on India's global influence. His ability to connect people from different backgrounds and foster a sense of unity is a hallmark of his community leadership.  His passion for making a positive impact is evident in every facet of his life, and his commitment to strengthening bonds between India and Scotland remains unwavering.",
+    },
+    {
       name: "Divya Rathore",
       position: "Consultant",
       expertise: "Senior Policy Specialist, Govt. of India",
@@ -57,7 +65,7 @@ const About = () => {
     },
     {
       name: "Saiyami Bhardwaj",
-      position: "Research Scholar and guest faculty ,",
+      position: "Research Scholar and guest faculty",
       expertise: "University of Delhi",
       image: "/Saiyami_1.png",
       description:
@@ -81,7 +89,7 @@ const About = () => {
     },
     {
       name: "Abhishek Bharti",
-      position: "Research Scholar and guest faculty,",
+      position: "Research Scholar and guest faculty",
       expertise: "University of Delhi",
       image: "/Abhishek_1.png",
       description:
