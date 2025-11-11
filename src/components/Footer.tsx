@@ -27,12 +27,12 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             {/* <div className="mb-6"></div> */}
             <div className="flex space-x-4">
-              <a
+              {/* <a
                 href="#"
                 className="text-teal-900 hover:text-white transition-colors p-2 hover:bg-teal-600 rounded"
               >
                 <FaTwitter size={30} />
-              </a>
+              </a> */}
               <a
                 href="https://www.linkedin.com/company/sangam-centre/"
                 className="text-teal-900 hover:text-white transition-colors p-2 hover:bg-teal-600 rounded"
