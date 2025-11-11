@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const Footer = () => {
@@ -34,16 +34,16 @@ const Footer = () => {
                 <FaTwitter size={30} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/sangam-centre/"
                 className="text-teal-900 hover:text-white transition-colors p-2 hover:bg-teal-600 rounded"
               >
                 <FaLinkedin size={30} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/sangam_centre?igsh=ajVzbjJ2a2hyd3Z0"
                 className="text-teal-900 hover:text-white transition-colors p-2 hover:bg-teal-600 rounded"
               >
-                <FaFacebook size={30} />
+                <FaInstagram size={30} />
               </a>
             </div>
             <p className="text-teal-200 text-sm newspaper-body mt-20 md:mb-0">
@@ -62,9 +62,6 @@ const Footer = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-teal-100 text-sm newspaper-body break-words">
                     divya.r@sangamcentre.org
-                  </span>
-                  <span className="text-teal-100 text-sm newspaper-body break-words">
-                    subrat.t@sangamcentre.org
                   </span>
                   <span className="text-teal-100 text-sm newspaper-body break-words">
                     suryaprakash@sangamcentre.org
