@@ -509,7 +509,7 @@ return (
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Culture as the Soul of Public Policy
+                  Culture as the Soul of Public Policy: Reimagining Good Governance, the Bharatiya Way
                 </h3>
                 <h5 className="pb-3">
                   by Prof. Rana Prithviraj Singh
