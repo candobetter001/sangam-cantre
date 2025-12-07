@@ -95,6 +95,14 @@ const About = () => {
       description:
         "Abhishek Bharti is an environmental science professional with a focus on pollution dynamics and ecosystem health, particularly in aquatic environments. His doctoral research at the University of Delhi examines the environmental behavior and risks of plastic contaminants, developed in collaboration with Khalifa University for advanced methodological support. He teaches undergraduate Environmental Studies as a Guest Faculty member at Bharati College, University of Delhi. Abhishek’s professional journey includes research and field roles at institutions like the Centre for Science and Environment (CSE), Wildlife Institute of India (WII), and Centre for Youth (C4Y), where he contributed to ecological assessments, community-based sustainability programs, and urban sanitation planning. His work bridges scientific research and practical implementation, aiming to foster environmentally informed decision-making through education, outreach, and interdisciplinary collaboration.",
     },
+    {
+      name: "Gurpreet Choudhary",
+      position: "Assistant Professor",
+      expertise: "Rajiv Gandhi National Institute of Youth Development",
+      image: "/Gurpreet 1.jpg",
+      description:
+        "Gurpreet is a scholar and practitioner of Public Administration, with expertise in governance, sustainable development, and public policy. He has represented India internationally at COP29 in Baku, and engaged with urban sustainable development policies during his visit to BRICS Sumit at Kazan, Russia and at UNITAR’s Asia-Pacific workshop in South Korea, he contributed to discussions on preserving cultural heritage and reviving heritage assets as sustainable tourism sites. He serves as an Assistant Professor at the Rajiv Gandhi National Institute of Youth Development, Chandigarh, and holds leadership roles in research and youth engagement. A B.Tech graduate from NIT Jalandhar (2014–2018), he brings interdisciplinary strengths, supported by published research, edited volumes, industry experience, and community-focused initiatives.",
+    },
   ];
 
   return (
