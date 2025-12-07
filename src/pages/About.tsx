@@ -99,7 +99,7 @@ const About = () => {
       name: "Gurpreet Choudhary",
       position: "Assistant Professor",
       expertise: "Rajiv Gandhi National Institute of Youth Development",
-      image: "/Gurpreet 1.jpg",
+      image: "/Gurpreet_2.jpg",
       description:
         "Gurpreet is a scholar and practitioner of Public Administration, with expertise in governance, sustainable development, and public policy. He has represented India internationally at COP29 in Baku, and engaged with urban sustainable development policies during his visit to BRICS Sumit at Kazan, Russia and at UNITAR’s Asia-Pacific workshop in South Korea, he contributed to discussions on preserving cultural heritage and reviving heritage assets as sustainable tourism sites. He serves as an Assistant Professor at the Rajiv Gandhi National Institute of Youth Development, Chandigarh, and holds leadership roles in research and youth engagement. A B.Tech graduate from NIT Jalandhar (2014–2018), he brings interdisciplinary strengths, supported by published research, edited volumes, industry experience, and community-focused initiatives.",
     },
