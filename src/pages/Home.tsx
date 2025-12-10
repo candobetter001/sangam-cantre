@@ -117,16 +117,10 @@ const Home = () => {
 
   const upcomingEvents = [
     {
-      title: "Cultural Heritage and Policy Integration Workshop",
-      date: "January 25, 2026",
+      title: "Round Table on Culture and Policy",
+      date: "March 21, 2026",
       time: "10:00 AM - 4:00 PM",
-      venue: "India International Centre, New Delhi",
-    },
-    {
-      title: "Digital Preservation Summit",
-      date: "February 5, 2026",
-      time: "2:00 PM - 6:00 PM",
-      venue: "Online Event",
+      venue: "India Habitat Centre, New Delhi",
     },
   ];
 
