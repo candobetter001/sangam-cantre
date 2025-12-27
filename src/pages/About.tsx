@@ -48,6 +48,14 @@ const About = () => {
         "Puneet Dwivedi, an MBE awardee (equivalent to India's Padma Shri), UK Government Civil Servant specialising in AI, Digital Data and technology. He is deeply committed to strengthening the UK-India 'living bridge' through policy, community, and innovation. Before joining UK Government, Puneet has Successfully leveraged 20 years career in financial services (working with major Banks, Financial institutions and IT Consultancy services) in India and the United Kingdom. As a Digital and Data Specialist, he has been bridging technical expertise and client needs. He has been involved in overseeing organisation’s overall data architecture, defining data architecture strategy, Data Governance and designing and implementing architectures including cloud-based platforms such as AWS, Azure and Google Cloud. Apart from his day job Puneet devote his time as trustee and advisor for numerous charities including INSA, Go Dharmic, Free Speech Union and Non-Executive board member of Scottish Hindu Foundation. He has also started a podcast called ‘GDP with PD- The Global Desi Podcast’ – where he interviewed high profile people including Ministers, MPs, Business leaders and Spiritual Gurus discussing their inspiring journey and unique insights on India's global influence. His ability to connect people from different backgrounds and foster a sense of unity is a hallmark of his community leadership.  His passion for making a positive impact is evident in every facet of his life, and his commitment to strengthening bonds between India and Scotland remains unwavering.",
     },
     {
+      name: "Mr. Rajiv Agarwal",
+      position: "Advisor",
+      expertise: "CTO & Co - Founder, Intellisoft Services",
+      image: "/Rajiv_1.png",
+      description:
+        "Rajiv Agarwal is a multidisciplinary entrepreneur and advisor who operates from a deep sense of agency rooted in clarity and independent thinking. He began his entrepreneurial journey at the age of 19, funding his first personal computer, an XT PC that he assembled himself in 1989. With a diverse academic background spanning multiple master’s degrees, bachelor’s degrees, diplomas, and certifications from both prestigious institutions and lesser-known spaces, Rajiv embodies lifelong learning beyond conventional hierarchies. His work spans software architecture, psychology, law, linguistics, urban farming, and hands-on DIY innovation. Over the years, he has funded and supported more than 15 ventures across mental health, law, biodiversity, finance, and technology, experiencing failures, follow-on funding rounds, revenue-generating successes, and one successful exit. His journey offers grounded insights shaped by experimentation, resilience, and real-world outcomes.",
+    },
+    {
       name: "Divya Rathore",
       position: "Consultant",
       expertise: "Senior Policy Specialist, Govt. of India",
