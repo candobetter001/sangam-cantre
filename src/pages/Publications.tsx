@@ -472,9 +472,9 @@ return (
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Policy Analysis of SAMRUDHI (Agriculture Policy)
+                  Culture as the Soul of Public Policy: Reimagining Good Governance, the Bharatiya Way
                 </h3>
-                <h5 className="pb-3">by Shri Subrat Tripathy</h5>
+                <h5 className="pb-3">by Prof. Rana Prithviraj Singh</h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center newpaper-body">
                     <Calendar className="mr-2 flex-shrink-0" size={16} />
@@ -482,11 +482,11 @@ return (
                   </div>
                   <div className="flex items-center newpaper-body">
                     <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>Odisha</span>
+                    <span>India</span>
                   </div>
                 </div>
                 <a
-                  href="/Assignment_Submission_Subrat Tripathy _Guest Series 2_AMPPP2021[1].pdf"
+                  href="/Culture as the Soul of Public Policy.pdf"
                   download
                   className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                 >
