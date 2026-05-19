@@ -143,3 +143,59 @@ All colors MUST be HSL.
     width: 100%;
   }
 }
+
+/* ===== TICKER ANIMATION (Feature 43) ===== */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 40s linear infinite;
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===== PRINT STYLES (Feature 40) ===== */
+@media print {
+  header, footer, nav, .print-hidden {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    color: #1e3a8a !important;
+    page-break-after: avoid;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+  a[href^="#"]:after,
+  a[href^="mailto"]:after {
+    content: none;
+  }
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  p, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+  article, section {
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 2cm;
+  }
+}
