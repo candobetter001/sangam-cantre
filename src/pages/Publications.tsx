@@ -1,657 +1,232 @@
-import React, { useState, useEffect } from "react";
-import {
-  Calendar,
-  Clock,
-  MapPin,
-  Users,
-  Video,
-  ArrowRight,
-} from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import React, { useState } from "react";
+import { Calendar, MapPin, ArrowRight, Search, X, Tag, BookOpen } from "lucide-react";
+
+const allPublications = [
+  {
+    id: 1,
+    title: "When Modern Cities Forget Water: A Global Drainage Crisis and the Wisdom We Buried",
+    authors: ["Abhishek Bharti"],
+    year: "2025",
+    category: "environmental-policy",
+    categoryLabel: "Environmental Policy",
+    location: "India",
+    abstract: "An exploration of how ancient water management wisdom embedded in Indian culture can address the contemporary urban drainage crisis, with a comparative global perspective.",
+    pdf: "/Flood and Culture (Global).pdf",
+    tags: ["Water Policy", "Urban Planning", "Indian Knowledge Systems"],
+    badge: "Latest Publication",
+    badgeColor: "bg-purple-100 text-purple-800",
+  },
+  {
+    id: 2,
+    title: "Culture as the Soul of Public Policy: Reimagining Good Governance, the Bharatiya Way",
+    authors: ["Prof. Rana Prithviraj Singh"],
+    year: "2020",
+    category: "governance",
+    categoryLabel: "Governance & Culture",
+    location: "India",
+    abstract: "A foundational argument that effective governance in India must be rooted in its civilisational cultural values — examining how Bharatiya traditions can inform modern public administration.",
+    pdf: "/Culture as the Soul of Public Policy.pdf",
+    tags: ["Governance", "Culture", "Public Policy", "Bharatiya Philosophy"],
+    badge: "Governance & Culture",
+    badgeColor: "bg-blue-100 text-blue-800",
+  },
+  {
+    id: 3,
+    title: "Policy Analysis of SAMRUDHI (Agriculture Policy)",
+    authors: ["Shri Subrat Tripathy"],
+    year: "2020",
+    category: "governance",
+    categoryLabel: "Governance & Culture",
+    location: "Odisha",
+    abstract: "A detailed policy analysis of the SAMRUDHI agricultural scheme in Odisha, examining implementation challenges, community impact, and recommendations for culturally-sensitive agricultural governance.",
+    pdf: "/Assignment_Submission_Subrat Tripathy _Guest Series 2_AMPPP2021[1].pdf",
+    tags: ["Agriculture", "Odisha", "Policy Analysis", "Rural Development"],
+    badge: "Governance & Culture",
+    badgeColor: "bg-blue-100 text-blue-800",
+  },
+  {
+    id: 4,
+    title: "Cultural Intelligence and Inclusive Governance",
+    authors: ["Prof. Rana Prithviraj Singh", "Suryaprakash Kar"],
+    year: "2025",
+    category: "governance",
+    categoryLabel: "Governance & Culture",
+    location: "India",
+    abstract: "Explores how cultural intelligence (CQ) can be integrated into governance frameworks to create more inclusive, context-sensitive public institutions that serve India's diverse populations.",
+    pdf: "/CQ_CB_ Governance_ABSTRACT (1).pdf",
+    tags: ["Cultural Intelligence", "Inclusive Governance", "Policy"],
+    badge: "Governance & Culture",
+    badgeColor: "bg-purple-100 text-purple-800",
+  },
+  {
+    id: 5,
+    title: "A Pluralistic, Culturally-Rooted Environmental Governance Model Integrating Indian Knowledge Systems and Scientific Evidence through MCDA",
+    authors: ["Saiyami Bhardwaj", "Abhishek Bharti"],
+    year: "2025",
+    category: "environmental-policy",
+    categoryLabel: "Environmental Policy",
+    location: "India",
+    abstract: "Proposes a multi-criteria decision analysis (MCDA) framework that integrates traditional Indian Knowledge Systems with contemporary scientific evidence for environmental governance.",
+    pdf: "/Draft of IKS Conference Version 2.pdf",
+    tags: ["IKS", "Environmental Governance", "MCDA", "Sustainability"],
+    badge: "Environmental Policy",
+    badgeColor: "bg-green-100 text-green-800",
+  },
+  {
+    id: 6,
+    title: "Water Management — Swaraj International Conference",
+    authors: ["Subrat Tripathy"],
+    year: "2025",
+    category: "water-policy",
+    categoryLabel: "Water Policy",
+    location: "India",
+    abstract: "Conference presentation examining water management challenges through the lens of cultural traditions and indigenous practices, presented at the Swaraj International Conference.",
+    pdf: "/Water Management -Swaraj Internatonal Conference   -Subrat Tripathy Final Prez 1[1].pdf",
+    tags: ["Water Management", "Swaraj", "Indigenous Knowledge"],
+    badge: "Water Policy",
+    badgeColor: "bg-green-100 text-green-800",
+  },
+];
+
+const categories = [
+  { value: "all", label: "All Publications" },
+  { value: "governance", label: "Governance & Culture" },
+  { value: "environmental-policy", label: "Environmental Policy" },
+  { value: "water-policy", label: "Water Policy" },
+];
 
 const Publications = () => {
-    const upcomingEvents = [];
-      const [activeTab, setActiveTab] = useState("upcoming");
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const [selectedCategory, setSelectedCategory] = useState("all");
-  // const [modalPub, setModalPub] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [modalPub, setModalPub] = useState<typeof allPublications[0] | null>(null);
 
-  // const categories = [
-  //   { value: "all", label: "All Publications" },
-  //   { value: "policy-brief", label: "Policy Briefs" },
-  //   { value: "research-paper", label: "Research Papers" },
-  //   { value: "working-paper", label: "Working Papers" },
-  //   { value: "report", label: "Reports" },
-  //   { value: "commentary", label: "Commentary" },
-  // ];
+  const filtered = allPublications.filter((pub) => {
+    const matchSearch =
+      pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pub.authors.some((a) => a.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      pub.tags.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      pub.abstract.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchCat = selectedCategory === "all" || pub.category === selectedCategory;
+    return matchSearch && matchCat;
+  });
 
-  // const publications = [
-  //   {
-  //     id: 1,
-  //     title: "Policy Innovation and Digital Transformation",
-  //     authors: ["Dr. Arjun Patel", "Ms. Priya Singh"],
-  //     date: "December 2024",
-  //     category: "policy-brief",
-  //     description:
-  //       "All focus areas are influenced by digital transformation and require examination of how technology is reshaping cultural policy landscapes. This includes analyzing the impact of digitalization on cultural participation, investigating new models of cultural content distribution, and developing policy frameworks for the digital cultural economy.",
-  //     pages: 24,
-  //     downloads: 1250,
-  //     views: 3400,
-  //     tags: ["Digital Policy", "Technology", "Infrastructure"],
-  //     featured: true,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Sustainable Development Integration",
-  //     authors: ["Prof. Meera Sharma", "Research Team"],
-  //     date: "November 2024",
-  //     category: "research-paper",
-  //     description:
-  //       "Cultural policy increasingly intersects with sustainable development goals, requiring analysis of how culture contributes to broader development objectives. Research examines culture's role in social cohesion, economic development, and environmental sustainability, creating integrated approaches to policy development.",
-  //     pages: 32,
-  //     downloads: 980,
-  //     views: 2200,
-  //     tags: ["Sustainability", "Economic Policy", "Climate Policy"],
-  //     featured: true,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Governance and Institutional Frameworks",
-  //     authors: ["Dr. Rajesh Kumar", "Urban Policy Team"],
-  //     date: "October 2024",
-  //     category: "report",
-  //     description:
-  //       "Effective cultural policy requires robust institutional arrangements and governance mechanisms. Research analyzes institutional effectiveness, examines coordination challenges between different levels of government, and develops strategies for improving cultural policy governance.",
-  //     pages: 28,
-  //     downloads: 800,
-  //     views: 1900,
-  //     tags: ["Governance", "Administration", "Urban Policy"],
-  //     featured: false,
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Implementation Considerations",
-  //     authors: ["Dr. Rajesh Kumar", "Policy Team"],
-  //     date: "September 2024",
-  //     category: "working-paper",
-  //     description:
-  //       "These focus areas should be approached through interdisciplinary research methodologies that combine quantitative and qualitative approaches, comparative policy analysis, and stakeholder engagement strategies. The think tank should prioritize evidence-based policy recommendations, maintain independence in research activities, and engage meaningfully with diverse stakeholders including policymakers, cultural practitioners, and community representatives.",
-  //     pages: 35,
-  //     downloads: 720,
-  //     views: 1700,
-  //     tags: ["Policy", "Stakeholders", "Research"],
-  //     featured: false,
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Selection and Prioritisation of Focus Areas in Cultural Policy",
-  //     authors: ["Prof. Meera Sharma", "Cultural Policy Team"],
-  //     date: "August 2024",
-  //     category: "policy-brief",
-  //     description:
-  //       "The selection and prioritisation of specific focus areas should reflect national and regional contexts, current policy challenges, and available resources while maintaining sufficient breadth to address the complex, interconnected nature of contemporary cultural policy issues.",
-  //     pages: 18,
-  //     downloads: 640,
-  //     views: 1500,
-  //     tags: ["Cultural Policy", "Governance", "Policy Reform"],
-  //     featured: false,
-  //   },
-  // ];
+  return (
+    <div className="bg-white dark:bg-gray-950">
+      <img src="/Publication.png" alt="Publications banner" className="w-full h-[300px] md:h-[400px] object-cover" />
 
-  // const filteredPublications = publications.filter((pub) => {
-  //   const matchesSearch =
-  //     pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     pub.authors.some((author) =>
-  //       author.toLowerCase().includes(searchTerm.toLowerCase())
-  //     ) ||
-  //     pub.description.toLowerCase().includes(searchTerm.toLowerCase());
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold newspaper-heading mb-4">Publications</h2>
+            <p className="newspaper-body max-w-2xl mx-auto">Research papers, policy briefs, and analytical reports by Sangam Centre contributors.</p>
+          </div>
 
-  //   const matchesCategory =
-  //     selectedCategory === "all" || pub.category === selectedCategory;
-
-  //   return matchesSearch && matchesCategory;
-  // });
-
-  // const featuredPublications = publications.filter((pub) => pub.featured);
-
-  // return (
-  //   <div className="bg-white">
-  //     {/* Hero Section */}
-  //     {/* <section className="bg-[#1e293c] text-white py-16">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <div className="text-center">
-  //           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-  //             Publications
-  //           </h1>
-  //           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-  //             Access our comprehensive collection of research papers, policy
-  //             briefs, and analytical reports on India's most pressing policy
-  //             challenges.
-  //           </p>
-  //         </div>
-  //       </div>
-  //     </section> */}
-
-  //     {/* Featured Publications */}
-  //     <section className="py-16 bg-gray-50">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-  //           Featured Publications
-  //         </h2>
-
-  //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-  //           {featuredPublications.map((pub) => (
-  //             <div
-  //               key={pub.id}
-  //               className="bg-white rounded-lg shadow-md overflow-hidden"
-  //             >
-  //               <div className="p-6">
-  //                 <div className="flex items-center justify-between mb-3">
-  //                   <span
-  //                     className={`px-3 py-1 text-xs font-semibold rounded-full ${
-  //                       pub.category === "policy-brief"
-  //                         ? "bg-blue-100 text-blue-800"
-  //                         : pub.category === "research-paper"
-  //                         ? "bg-green-100 text-green-800"
-  //                         : "bg-purple-100 text-purple-800"
-  //                     }`}
-  //                   >
-  //                     {
-  //                       categories.find((cat) => cat.value === pub.category)
-  //                         ?.label
-  //                     }
-  //                   </span>
-  //                   <span className="text-gray-500 text-sm">{pub.date}</span>
-  //                 </div>
-
-  //                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-  //                   {pub.title}
-  //                 </h3>
-  //                 <p className="text-gray-600 text-sm mb-3">
-  //                   By {pub.authors.join(", ")}
-  //                 </p>
-  //                 <p className="text-gray-700 mb-4 leading-relaxed">
-  //                   {pub.description.slice(0, 150)}
-  //                   {pub.description.length > 150 && "..."}
-  //                 </p>
-
-  //                 <div className="flex flex-wrap gap-2 mb-4">
-  //                   {pub.tags.map((tag, index) => (
-  //                     <span
-  //                       key={index}
-  //                       className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded"
-  //                     >
-  //                       {tag}
-  //                     </span>
-  //                   ))}
-  //                 </div>
-
-  //                 {/* <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-  //                   <span className="flex items-center">
-  //                     <Eye className="mr-1" size={14} />
-  //                     {pub.views.toLocaleString()} views
-  //                   </span>
-  //                   <span>{pub.pages} pages</span>
-  //                 </div> */}
-
-  //                 <div className="flex gap-3">
-  //                   <button
-  //                     onClick={() => setModalPub(pub)}
-  //                     className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
-  //                   >
-  //                     <Eye className="mr-2" size={16} />
-  //                     Read More
-  //                   </button>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </section>
-
-  //     {/* Search and Filter */}
-  //     <section className="py-8 bg-white border-b border-gray-200">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <div className="flex flex-col md:flex-row gap-4">
-  //           <div className="flex-1 relative">
-  //             <Search
-  //               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-  //               size={20}
-  //             />
-  //             <input
-  //               type="text"
-  //               placeholder="Search publications..."
-  //               value={searchTerm}
-  //               onChange={(e) => setSearchTerm(e.target.value)}
-  //               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  //             />
-  //           </div>
-  //           <select
-  //             value={selectedCategory}
-  //             onChange={(e) => setSelectedCategory(e.target.value)}
-  //             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  //           >
-  //             {categories.map((category) => (
-  //               <option key={category.value} value={category.value}>
-  //                 {category.label}
-  //               </option>
-  //             ))}
-  //           </select>
-  //         </div>
-  //       </div>
-  //     </section>
-
-  //     {/* All Publications */}
-  //     <section className="py-16">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <div className="flex items-center justify-between mb-8">
-  //           <h2 className="text-2xl font-bold text-gray-900">
-  //             All Publications ({filteredPublications.length})
-  //           </h2>
-  //           <div className="text-sm text-gray-600">
-  //             Showing {filteredPublications.length} of {publications.length}{" "}
-  //             publications
-  //           </div>
-  //         </div>
-
-  //         <div className="space-y-6">
-  //           {filteredPublications.map((pub) => (
-  //             <div
-  //               key={pub.id}
-  //               className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
-  //             >
-  //               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-  //                 <div className="flex-1">
-  //                   <div className="flex items-center gap-3 mb-3">
-  //                     <span
-  //                       className={`px-3 py-1 text-xs font-semibold rounded-full ${
-  //                         pub.category === "policy-brief"
-  //                           ? "bg-blue-100 text-blue-800"
-  //                           : pub.category === "research-paper"
-  //                           ? "bg-green-100 text-green-800"
-  //                           : pub.category === "working-paper"
-  //                           ? "bg-yellow-100 text-yellow-800"
-  //                           : pub.category === "report"
-  //                           ? "bg-purple-100 text-purple-800"
-  //                           : "bg-gray-100 text-gray-800"
-  //                       }`}
-  //                     >
-  //                       {
-  //                         categories.find((cat) => cat.value === pub.category)
-  //                           ?.label
-  //                       }
-  //                     </span>
-  //                     <span className="text-gray-500 text-sm">{pub.date}</span>
-  //                   </div>
-
-  //                   <h3 className="text-xl font-bold text-gray-900 mb-2">
-  //                     {pub.title}
-  //                   </h3>
-  //                   <p className="text-gray-600 text-sm mb-3">
-  //                     By {pub.authors.join(", ")}
-  //                   </p>
-  //                   <p className="text-gray-700 mb-4 leading-relaxed">
-  //                     {pub.description.slice(0, 150)}
-  //                     {pub.description.length > 150 && "..."}
-  //                   </p>
-
-  //                   <div className="flex flex-wrap gap-2 mb-4">
-  //                     {pub.tags.map((tag, index) => (
-  //                       <span
-  //                         key={index}
-  //                         className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded flex items-center"
-  //                       >
-  //                         <Tag className="mr-1" size={12} />
-  //                         {tag}
-  //                       </span>
-  //                     ))}
-  //                   </div>
-
-  //                   {/* <div className="flex items-center gap-6 text-sm text-gray-500">
-  //                     <span className="flex items-center">
-  //                       <Eye className="mr-1" size={14} />
-  //                       {pub.views.toLocaleString()} views
-  //                     </span>
-  //                     <span>{pub.pages} pages</span>
-  //                   </div> */}
-  //                 </div>
-
-  //                 <div className="mt-4 lg:mt-0 lg:ml-6 flex flex-col gap-2">
-  //                   <button
-  //                     onClick={() => setModalPub(pub)}
-  //                     className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
-  //                   >
-  //                     <Eye className="mr-2" size={16} />
-  //                     Read More
-  //                   </button>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-
-  //         {filteredPublications.length === 0 && (
-  //           <div className="text-center py-12">
-  //             <p className="text-gray-500 text-lg">
-  //               No publications found matching your search criteria.
-  //             </p>
-  //           </div>
-  //         )}
-  //       </div>
-  //     </section>
-
-  //     {/* Newsletter Signup */}
-  //     {/* <section className="py-16 bg-blue-50">
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //         <div className="text-center max-w-2xl mx-auto">
-  //           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-  //             Stay Updated
-  //           </h2>
-  //           <p className="text-lg text-gray-600 mb-8">
-  //             Subscribe to our newsletter to get notified when we publish new
-  //             research and policy analysis.
-  //           </p>
-  //           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-  //             <input
-  //               type="email"
-  //               placeholder="Enter your email"
-  //               className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  //             />
-  //             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center">
-  //               Subscribe
-  //               <ArrowRight className="ml-2" size={16} />
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </section> */}
-
-  //     {/* Modal */}
-  //     {modalPub && (
-  //       <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
-  //         <div className="bg-white max-w-2xl w-full p-6 rounded-lg relative shadow-lg">
-  //           <button
-  //             className="absolute top-3 right-3 text-gray-600 hover:text-gray-800"
-  //             onClick={() => setModalPub(null)}
-  //           >
-  //             <X size={20} />
-  //           </button>
-  //           <h3 className="text-2xl font-bold mb-3">{modalPub.title}</h3>
-  //           <p className="text-sm text-gray-500 mb-2">
-  //             By {modalPub.authors.join(", ")}
-  //           </p>
-  //           <p className="text-gray-700 leading-relaxed">
-  //             {modalPub.description}
-  //           </p>
-  //           <div className="mt-4 flex flex-wrap gap-2">
-  //             {modalPub.tags.map((tag, idx) => (
-  //               <span
-  //                 key={idx}
-  //                 className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded"
-  //               >
-  //                 {tag}
-  //               </span>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-return (
-  <div className="bg-white">
-    <img
-      src="/Publication.png"
-      alt="Decorative banner"
-      className="w-full max-w-8xl h-[400px] object-cover"
-    />
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold newpaper-body mb-4">
-            Publications
-          </h2>
-        </div>
-
-        {/* New Publication Card 1 */}
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-purple-100 text-purple-800">
-                    Latest Publication
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  When Modern Cities Forget Water: A Global Drainage Crisis and the Wisdom We Buried
-                </h3>
-                <h5 className="pb-3">
-                  by Abhishek Bharti
-                </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2025</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>India</span>
-                  </div>
-                </div>
-                <a
-                  href="/Flood and Culture (Global).pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
+          {/* Search & Filter */}
+          <div className="flex flex-col md:flex-row gap-4 mb-10">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Search by title, author, or keyword..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+              />
+              {searchTerm && (
+                <button onClick={() => setSearchTerm("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  <X size={18} />
+                </button>
+              )}
             </div>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+            >
+              {categories.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
+            </select>
+          </div>
+
+          <p className="text-sm newspaper-body text-gray-500 mb-6">
+            Showing {filtered.length} of {allPublications.length} publications
+            {searchTerm && <span> for "<strong>{searchTerm}</strong>"</span>}
+          </p>
+
+          {/* Publications List */}
+          <div className="space-y-6">
+            {filtered.map((pub) => (
+              <div key={pub.id} className="bg-teal-50 dark:bg-gray-800 border border-transparent hover:border-teal-300 rounded-lg shadow-sm hover:shadow-md transition-all p-6 md:p-8">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className={`px-3 py-1 text-xs font-semibold rounded-full ${pub.badgeColor}`}>{pub.badge}</span>
+                  <span className="flex items-center text-sm newspaper-body text-gray-500 gap-1"><Calendar size={14} />{pub.year}</span>
+                  <span className="flex items-center text-sm newspaper-body text-gray-500 gap-1"><MapPin size={14} />{pub.location}</span>
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-bold newspaper-heading mb-2">{pub.title}</h3>
+                <p className="text-sm font-medium text-teal-700 mb-3">by {pub.authors.join(", ")}</p>
+                <p className="newspaper-body text-sm text-gray-600 mb-4 leading-relaxed line-clamp-2">{pub.abstract}</p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {pub.tags.map((tag) => (
+                    <button key={tag} onClick={() => setSearchTerm(tag)}
+                      className="inline-flex items-center gap-1 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded hover:border-teal-400 hover:text-teal-700 transition-colors">
+                      <Tag size={11} />{tag}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <button onClick={() => setModalPub(pub)}
+                    className="inline-flex items-center px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 transition-colors text-sm font-medium">
+                    <BookOpen className="mr-2" size={16} /> Read Abstract
+                  </button>
+                  <a href={pub.pdf} download
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm font-medium">
+                    <ArrowRight className="mr-2" size={16} /> Download PDF
+                  </a>
+                </div>
+              </div>
+            ))}
+
+            {filtered.length === 0 && (
+              <div className="text-center py-16 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <Search className="mx-auto text-gray-300 mb-4" size={40} />
+                <p className="text-xl newspaper-body text-gray-500">No publications match "{searchTerm}"</p>
+                <button onClick={() => { setSearchTerm(""); setSelectedCategory("all"); }}
+                  className="mt-4 text-teal-600 hover:underline text-sm">Clear search</button>
+              </div>
+            )}
           </div>
         </div>
+      </section>
 
-        {/* Existing Publication Card */}
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-blue-100 text-blue-800">
-                    Governance & Culture
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Culture as the Soul of Public Policy: Reimagining Good Governance, the Bharatiya Way
-                </h3>
-                <h5 className="pb-3">by Prof. Rana Prithviraj Singh</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2020</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>India</span>
-                  </div>
-                </div>
-                <a
-                  href="/Culture as the Soul of Public Policy.pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
+      {/* Abstract Modal */}
+      {modalPub && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onClick={() => setModalPub(null)}>
+          <div className="bg-white dark:bg-gray-900 max-w-2xl w-full p-8 rounded-xl shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setModalPub(null)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 p-1"><X size={22} /></button>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className={`px-3 py-1 text-xs font-semibold rounded-full ${modalPub.badgeColor}`}>{modalPub.badge}</span>
+              <span className="text-sm text-gray-500">{modalPub.year} · {modalPub.location}</span>
             </div>
+            <h3 className="text-2xl font-bold newspaper-heading mb-2">{modalPub.title}</h3>
+            <p className="text-sm font-medium text-teal-700 mb-4">by {modalPub.authors.join(", ")}</p>
+            <h4 className="font-semibold newspaper-body mb-2">Abstract</h4>
+            <p className="newspaper-body text-sm leading-relaxed text-gray-700 dark:text-gray-300">{modalPub.abstract}</p>
+            <div className="flex flex-wrap gap-2 mt-4 mb-6">
+              {modalPub.tags.map((tag) => (
+                <span key={tag} className="inline-flex items-center gap-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded"><Tag size={11} />{tag}</span>
+              ))}
+            </div>
+            <a href={modalPub.pdf} download onClick={() => setModalPub(null)}
+              className="inline-flex items-center px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-semibold">
+              <ArrowRight className="mr-2" size={18} /> Download Full PDF
+            </a>
           </div>
         </div>
-
-        {/* Existing Publication Card */}
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-blue-100 text-blue-800">
-                    Governance & Culture
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Policy Analysis of SAMRUDHI (Agriculture Policy)
-                </h3>
-                <h5 className="pb-3">by Shri Subrat Tripathy</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2020</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>Odisha</span>
-                  </div>
-                </div>
-                <a
-                  href="/Assignment_Submission_Subrat Tripathy _Guest Series 2_AMPPP2021[1].pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* New Publication Card 3 */}
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-purple-100 text-purple-800">
-                    Governance & Culture
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Cultural Intelligence and Inclusive Governance
-                </h3>
-                <h5 className="pb-3">
-                  by Prof. Rana Prithviraj Singh & Suryaprakash Kar
-                </h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2025</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>India</span>
-                  </div>
-                </div>
-                <a
-                  href="/CQ_CB_ Governance_ABSTRACT (1).pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* New Publication Card 4 */}
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-green-100 text-green-800">
-                    Environmental Policy
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  A Pluralistic, Culturally-Rooted Environmental Governance
-                  Model Integrating Indian Knowledge Systems and Scientific
-                  Evidence through MCDA
-                </h3>
-                <h5 className="pb-3">by Saiyami Bhardwaj & Abhishek Bharti</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2025</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>India</span>
-                  </div>
-                </div>
-                <a
-                  href="/Draft of IKS Conference Version 2.pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-teal-50 border-gray-200 rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="p-8">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex-1">
-                <div className="flex items-center mb-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full mr-3 bg-green-100 text-green-800">
-                    Water Policy
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold newpaper-body mb-4">
-                  Water Management -Swaraj Internatonal Conference
-                </h3>
-                <h5 className="pb-3">By Subrat Tripathy</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center newpaper-body">
-                    <Calendar className="mr-2 flex-shrink-0" size={16} />
-                    <span>2025</span>
-                  </div>
-                  <div className="flex items-center newpaper-body">
-                    <MapPin className="mr-2 flex-shrink-0" size={16} />
-                    <span>India</span>
-                  </div>
-                </div>
-                <a
-                  href="/Water Management -Swaraj Internatonal Conference   -Subrat Tripathy Final Prez 1[1].pdf"
-                  download
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                >
-                  <ArrowRight className="mr-2" size={16} />
-                  View Full Report
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-);
-
+      )}
+    </div>
+  );
 };
 
 export default Publications;
