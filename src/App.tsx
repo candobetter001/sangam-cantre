@@ -11,6 +11,9 @@ import Events from "./pages/Events";
 import Publications from "./pages/Publications";
 import Media from "./pages/Media";
 import WorkWithUs from "./pages/WorkWithUs";
+import Contact from "./pages/Contact";
+import Awards from "./pages/Awards";
+import Podcast from "./pages/Podcast";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/Scroll";
 
@@ -32,7 +35,9 @@ const App = () => (
             <Route path="/publications" element={<Publications />} />
             <Route path="/media" element={<Media />} />
             <Route path="/work-with-us" element={<WorkWithUs />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/awards" element={<Awards />} />
+            <Route path="/podcast" element={<Podcast />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
