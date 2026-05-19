@@ -14,6 +14,7 @@ import WorkWithUs from "./pages/WorkWithUs";
 import Contact from "./pages/Contact";
 import Awards from "./pages/Awards";
 import Podcast from "./pages/Podcast";
+import AnnualReport from "./pages/AnnualReport";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/Scroll";
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/awards" element={<Awards />} />
             <Route path="/podcast" element={<Podcast />} />
+            <Route path="/annual-report" element={<AnnualReport />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
