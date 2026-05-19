@@ -31,6 +31,8 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
 
+    <meta name="theme-color" content="#0d9488" />
+
     <!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -43,5 +45,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Service Worker — PWA offline support (Feature 50) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () =>
+          navigator.serviceWorker.register('/sw.js')
+        );
+      }
+    </script>
   </body>
 </html>
