@@ -41,6 +41,45 @@
       gtag('js', new Date());
       gtag('config', 'G-XXXXXXXXXX');
     </script>
+  
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sangam Centre for Culture and Public Policy",
+      "alternateName": "Sangam Centre",
+      "url": "https://www.sangamcentre.org",
+      "logo": "https://www.sangamcentre.org/favicon/android-chrome-512x512.png",
+      "description": "Research and policy initiative at the confluence of Indian cultural heritage and contemporary governance.",
+      "foundingDate": "2024",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressCountry": "IN"
+      },
+      "email": "suryaprakash@sangamcentre.org",
+      "sameAs": [
+        "https://www.linkedin.com/company/sangam-centre/",
+        "https://www.instagram.com/sangam_centre"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Sangam Centre",
+      "url": "https://www.sangamcentre.org",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.sangamcentre.org/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <!-- RSS feed discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Sangam Centre Publications" href="/rss.xml" />
   </head>
   <body>
     <div id="root"></div>
