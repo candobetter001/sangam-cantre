@@ -7,6 +7,10 @@ import BackToTop from './BackToTop';
 import WelcomePopup from './WelcomePopup';
 import NewsletterPopup from './NewsletterPopup';
 import CookieBanner from './CookieBanner';
+import SkipToContent from './SkipToContent';
+import SearchModal from './SearchModal';
+import Breadcrumbs from './Breadcrumbs';
+import AccessibilityMenu from './AccessibilityMenu';
 import { FaWhatsapp } from 'react-icons/fa';
 
 interface LayoutProps {
@@ -16,15 +20,16 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-950">
+      <SkipToContent />
       <ScrollProgress />
       <NewsTicker />
       <Header />
-      <main className="flex-1">
+      <Breadcrumbs />
+      <main id="main-content" className="flex-1">
         {children}
       </main>
       <Footer />
 
-      {/* Floating WhatsApp Button */}
       <a
         href="https://wa.me/919800000000"
         target="_blank"
@@ -37,6 +42,8 @@ const Layout = ({ children }: LayoutProps) => {
       </a>
 
       <BackToTop />
+      <SearchModal />
+      <AccessibilityMenu />
       <WelcomePopup />
       <NewsletterPopup />
       <CookieBanner />
