@@ -105,3 +105,5 @@ After Formspree signup at formspree.io:
 ## How to ship to live
 
 When you and Suryaprakash agree, open a PR from `candobetter001/sangam-cantre` → `suryaprakash-k123/sangam-cantre`. Suryaprakash merges and sangamcentre.org rebuilds with everything.
+
+<!-- redeploy trigger 1779258389 -->
