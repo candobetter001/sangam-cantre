@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sangam Centre — Publications</title>
+    <link>https://www.sangamcentre.org/publications</link>
+    <description>Research papers, policy briefs, and analytical reports from Sangam Centre for Culture and Public Policy.</description>
+    <language>en-IN</language>
+    <atom:link href="https://www.sangamcentre.org/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 May 2026 12:00:00 +0530</lastBuildDate>
+
+    <item>
+      <title>When Modern Cities Forget Water</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Abhishek Bharti examines how urban planning has disconnected modern cities from traditional water-management wisdom.</description>
+      <pubDate>Wed, 15 Jan 2025 12:00:00 +0530</pubDate>
+      <author>Abhishek Bharti</author>
+      <guid isPermaLink="false">sangam-modern-cities-water-2025</guid>
+    </item>
+
+    <item>
+      <title>Cultural Intelligence and Inclusive Governance</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Prof. Rana Prithviraj Singh and Suryaprakash explore how cultural intelligence informs inclusive governance models.</description>
+      <pubDate>Mon, 10 Mar 2025 12:00:00 +0530</pubDate>
+      <author>Prof. Rana Prithviraj Singh and Suryaprakash</author>
+      <guid isPermaLink="false">sangam-cultural-intelligence-governance-2025</guid>
+    </item>
+
+    <item>
+      <title>A Pluralistic, Culturally-Rooted Environmental Governance Model</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Saiyami and Abhishek Bharti present a model for environmental governance grounded in cultural pluralism.</description>
+      <pubDate>Tue, 22 Apr 2025 12:00:00 +0530</pubDate>
+      <author>Saiyami and Abhishek Bharti</author>
+      <guid isPermaLink="false">sangam-pluralistic-env-governance-2025</guid>
+    </item>
+
+    <item>
+      <title>Water Management — Swaraj International Conference</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Subrat Tripathy's research presentation on water management at the Swaraj International Conference 2025.</description>
+      <pubDate>Sat, 12 Jul 2025 12:00:00 +0530</pubDate>
+      <author>Subrat Tripathy</author>
+      <guid isPermaLink="false">sangam-water-mgmt-swaraj-2025</guid>
+    </item>
+
+    <item>
+      <title>Culture as the Soul of Public Policy</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Prof. Rana Prithviraj Singh argues that culture must be at the centre of public policy design.</description>
+      <pubDate>Tue, 14 Jan 2020 12:00:00 +0530</pubDate>
+      <author>Prof. Rana Prithviraj Singh</author>
+      <guid isPermaLink="false">sangam-culture-soul-policy-2020</guid>
+    </item>
+
+    <item>
+      <title>Policy Analysis of SAMRUDHI</title>
+      <link>https://www.sangamcentre.org/publications</link>
+      <description>Shri Subrat Tripathy's policy analysis of the SAMRUDHI initiative.</description>
+      <pubDate>Mon, 03 Aug 2020 12:00:00 +0530</pubDate>
+      <author>Shri Subrat Tripathy</author>
+      <guid isPermaLink="false">sangam-samrudhi-2020</guid>
+    </item>
+  </channel>
+</rss>
