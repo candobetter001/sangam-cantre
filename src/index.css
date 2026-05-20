@@ -385,3 +385,41 @@ All colors MUST be HSL.
   }
   .particle { display: none !important; }
 }
+
+/* ===== ACCESSIBILITY MODES ===== */
+html.high-contrast {
+  filter: contrast(1.35);
+}
+html.high-contrast body {
+  background: #000 !important;
+  color: #fff !important;
+}
+html.high-contrast a {
+  color: #4dd0e1 !important;
+  text-decoration: underline;
+}
+
+html.dyslexic-font,
+html.dyslexic-font body,
+html.dyslexic-font h1,
+html.dyslexic-font h2,
+html.dyslexic-font h3,
+html.dyslexic-font h4,
+html.dyslexic-font h5,
+html.dyslexic-font h6,
+html.dyslexic-font p,
+html.dyslexic-font a,
+html.dyslexic-font span,
+html.dyslexic-font li,
+html.dyslexic-font div {
+  font-family: Verdana, "Trebuchet MS", "Comic Sans MS", sans-serif !important;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+/* Better focus visibility for keyboard nav */
+*:focus-visible {
+  outline: 3px solid #0d9488 !important;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
